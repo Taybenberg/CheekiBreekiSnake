@@ -9,7 +9,7 @@ namespace StalkerBot
     {
         async void shoc(TelegramBotClient Bot, CallbackQueryEventArgs cqea)
         {
-            string folder = path + "\\res\\shoc\\";
+            string folder = path + "/res/shoc/";
 
             var message = cqea.CallbackQuery.Message;
             var ChatId = message.Chat.Id;
@@ -37,56 +37,56 @@ namespace StalkerBot
 
                 case "start":
                     await Bot.SendVideoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "intro_stalker.mp4")).Content);
-                    await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_icon.png")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_monolog1.ogg")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader1b.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
+                    await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_icon.png")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_monolog1.ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader1b.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
 
                     break;
 
                 case "escape_trader_walk":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_start_dialog_3.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Досвідчений", "escape_trader_experienced"), InlineKeyboardButton.WithCallbackData("Новачок", "escape_trader_novice") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_start_dialog_3.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Досвідчений", "escape_trader_experienced"), InlineKeyboardButton.WithCallbackData("Новачок", "escape_trader_novice") }));
                     break;
 
                 case "escape_trader_stay":
                     switch (R.Next(0, 4))
                     {
                         case 0:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1b_3.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1b_3.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
                             break;
 
                         case 1:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1b_4.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1b_4.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
                             break;
 
                         case 2:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1b_5.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1b_5.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
                             break;
 
                         case 3:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_tutorial_rejection_4.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_tutorial_rejection_4.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Підійти", "escape_trader_walk"), InlineKeyboardButton.WithCallbackData("Не підходити", "escape_trader_stay") }));
                             break;
                     }
                     break;
 
                 case "escape_trader_experienced":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_start_dialog_111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Піти до табору новачків", "escape_trader_goto_village_first") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_start_dialog_111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Піти до табору новачків", "escape_trader_goto_village_first") }));
                     break;
 
                 case "escape_trader_novice":
                     await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "ui_pda.png")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_tutorial_pda_1.ogg")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_tutorial_pda_on_1.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("…", "escape_trader_tutorial_pda_on") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_tutorial_pda_1.ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_tutorial_pda_on_1.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("…", "escape_trader_tutorial_pda_on") }));
 
                     break;
 
                 case "escape_trader_tutorial_pda_on":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_tutorial_pda_on_4.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Я запам'ятав", "escape_trader_experienced") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_tutorial_pda_on_4.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Я запам'ятав", "escape_trader_experienced") }));
                     break;
 
                 case "escape_trader_goto_village_first":
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_servomotor.ogg")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_start.ogg")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1c_5.ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1c_5.ogg")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_closing.ogg")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_stop.ogg")).Content);
 
@@ -96,7 +96,7 @@ namespace StalkerBot
                     break;
 
                 case "escape_wolf_hello_notresponded":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\fire\\fire2.ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/fire/fire2.ogg")).Content);
 
                     await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "stalker_novice_" + R.Next(1, 6).ToString() + ".png")).Content);
 
@@ -104,23 +104,23 @@ namespace StalkerBot
                     {
                         case 1:
                         case 2:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_" + R.Next(1, 4).ToString() + "\\novice\\intro_music_" + R.Next(1, 6).ToString() + ".ogg")).Content);
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\fire\\guitar_" + R.Next(1, 12).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_" + R.Next(1, 4).ToString() + "/novice/intro_music_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/fire/guitar_" + R.Next(1, 12).ToString() + ".ogg")).Content);
                             break;
 
                         case 3:
                             switch (R.Next(1, 4))
                             {
                                 case 1:
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_1\\novice\\idle_" + R.Next(1, 40).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_1/novice/idle_" + R.Next(1, 40).ToString() + ".ogg")).Content);
                                     break;
 
                                 case 2:
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_2\\novice\\idle_" + R.Next(1, 39).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_2/novice/idle_" + R.Next(1, 39).ToString() + ".ogg")).Content);
                                     break;
 
                                 case 3:
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_3\\novice\\idle_" + R.Next(1, 40).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_3/novice/idle_" + R.Next(1, 40).ToString() + ".ogg")).Content);
                                     break;
                             }
                             break;
@@ -131,18 +131,18 @@ namespace StalkerBot
                             switch (R.Next(1, 4))
                             {
                                 case 1:
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_1\\novice\\intro_joke_" + R.Next(1, 6).ToString() + ".ogg")).Content);
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_1\\novice\\joke_" + R.Next(1, 14).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_1/novice/intro_joke_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_1/novice/joke_" + R.Next(1, 14).ToString() + ".ogg")).Content);
                                     break;
 
                                 case 2:
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_2\\novice\\intro_joke_" + R.Next(1, 6).ToString() + ".ogg")).Content);
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_2\\novice\\joke_" + R.Next(1, 16).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_2/novice/intro_joke_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_2/novice/joke_" + R.Next(1, 16).ToString() + ".ogg")).Content);
                                     break;
 
                                 case 3:
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_3\\novice\\intro_joke_" + R.Next(1, 6).ToString() + ".ogg")).Content);
-                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_3\\novice\\joke_" + R.Next(1, 14).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_3/novice/intro_joke_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_3/novice/joke_" + R.Next(1, 14).ToString() + ".ogg")).Content);
                                     break;
                             }
                             break;
@@ -228,11 +228,11 @@ namespace StalkerBot
                     switch (R.Next(1, 3))
                     {
                         case 1:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit\\detour_" + R.Next(1, 7).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit/detour_" + R.Next(1, 7).ToString() + ".ogg")).Content);
                             break;
 
                         case 2:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit\\attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit/attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
                             break;
                     }
 
@@ -261,11 +261,11 @@ namespace StalkerBot
                                 switch (R.Next(1, 3))
                                 {
                                     case 1:
-                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit\\detour_" + R.Next(1, 7).ToString() + ".ogg")).Content);
+                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit/detour_" + R.Next(1, 7).ToString() + ".ogg")).Content);
                                         break;
 
                                     case 2:
-                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit\\attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit/attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
                                         break;
                                 }
 
@@ -291,15 +291,15 @@ namespace StalkerBot
                                 switch (R.Next(1, 4))
                                 {
                                     case 1:
-                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_1\\novice\\attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_1/novice/attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
                                         break;
 
                                     case 2:
-                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_2\\novice\\attack_many_" + R.Next(1, 7).ToString() + ".ogg")).Content);
+                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_2/novice/attack_many_" + R.Next(1, 7).ToString() + ".ogg")).Content);
                                         break;
 
                                     case 3:
-                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_3\\novice\\attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                                        await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_3/novice/attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
                                         break;
                                 }
 
@@ -317,7 +317,7 @@ namespace StalkerBot
                                 }
 
                                 await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit_novice_" + R.Next(1, 5).ToString() + ".png")).Content);
-                                await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\bandit\\death_" + R.Next(1, 11).ToString() + ".ogg")).Content);
+                                await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/bandit/death_" + R.Next(1, 11).ToString() + ".ogg")).Content);
 
                                 break;
                         }
@@ -328,15 +328,15 @@ namespace StalkerBot
                     switch (R.Next(1, 4))
                     {
                         case 1:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_1\\novice\\attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_1/novice/attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
                             break;
 
                         case 2:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_2\\novice\\attack_many_" + R.Next(1, 7).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_2/novice/attack_many_" + R.Next(1, 7).ToString() + ".ogg")).Content);
                             break;
 
                         case 3:
-                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\stalker_3\\novice\\attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
+                            await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/stalker_3/novice/attack_many_" + R.Next(1, 6).ToString() + ".ogg")).Content);
                             break;
                     }
 
@@ -354,7 +354,7 @@ namespace StalkerBot
                     }
 
                     await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "bandit_novice_" + R.Next(1, 5).ToString() + ".png")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\bandit\\death_" + R.Next(1, 11).ToString() + ".ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/bandit/death_" + R.Next(1, 11).ToString() + ".ogg")).Content);
 
                     await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "escape_petruha_icon.png")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "assault_victory.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Перемога!", "assault_victory") }));
@@ -385,34 +385,34 @@ namespace StalkerBot
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_closing.ogg")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_stop.ogg")).Content);
 
-                    await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_icon.png")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1a_5.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Притягнув флешку", "escape_trader_start_dialog_521111") }));
+                    await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_icon.png")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1a_5.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Притягнув флешку", "escape_trader_start_dialog_521111") }));
                     break;
 
                 case "escape_trader_start_dialog_521111":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1c_6.ogg")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_jobs_6.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Припустимо", "escape_trader_jobs_6") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1c_6.ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_jobs_6.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Припустимо", "escape_trader_jobs_6") }));
                     break;
 
                 case "escape_trader_jobs_6":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_jobs_611.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Згода", "escape_trader_jobs_611") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_jobs_611.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Згода", "escape_trader_jobs_611") }));
                     break;
 
                 case "escape_trader_jobs_611":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_jobs_61111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Продовжуй", "escape_trader_jobs_61111") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_jobs_61111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Продовжуй", "escape_trader_jobs_61111") }));
                     break;
 
                 case "escape_trader_jobs_61111":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_jobs_6111111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Так", "escape_trader_jobs_6111111") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_jobs_6111111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Так", "escape_trader_jobs_6111111") }));
                     break;
 
                 case "escape_trader_jobs_6111111":
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_jobs_611111111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Відправитися у серйозну вилазку", "escape_trader_goto_bridge") }));
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_jobs_611111111.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Відправитися у серйозну вилазку", "escape_trader_goto_bridge") }));
                     break;
 
                 case "escape_trader_goto_bridge":
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_start.ogg")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_script1c_5.ogg")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_script1c_5.ogg")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_closing.ogg")).Content);
                     await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "door_stop.ogg")).Content);
 
@@ -455,8 +455,8 @@ namespace StalkerBot
                     break;
 
                 case "esc_bridge_crossed":
-                    await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\escape_trader_icon.png")).Content);
-                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "\\escape_trader\\trader_pda_fox.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Допомогти Лисові", "esc_pda_fox_help") }));
+                    await Bot.SendPhotoAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/escape_trader_icon.png")).Content);
+                    await Bot.SendVoiceAsync(ChatId, new InputFileStream(System.IO.File.OpenRead(folder + "/escape_trader/trader_pda_fox.ogg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Допомогти Лисові", "esc_pda_fox_help") }));
                     break;
 
                 case "esc_pda_fox_help":
