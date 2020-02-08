@@ -41,7 +41,7 @@ namespace StalkerBot
                     break;
 
                 case "quest":
-                    await Bot.SendPhotoAsync(ChatId, new Telegram.Bot.Types.InputFiles.InputFileStream(File.OpenRead(path + "\\res\\stalker.jpg")).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Нова гра", "shocnew") }));
+                    await Bot.SendPhotoAsync(ChatId, new Telegram.Bot.Types.InputFiles.InputFileStream(File.OpenRead(Path.Combine(path, "res", "stalker.jpg"))).Content, replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithCallbackData("Нова гра", "shocnew") }));
                     break;
 
                 case "sendvoice":

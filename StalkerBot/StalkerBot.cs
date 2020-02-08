@@ -13,7 +13,7 @@ namespace StalkerBot
 
         Random R = new Random();
 
-        readonly string path = Path.GetTempPath() + @"\StalkerResources";
+        readonly string path = Path.Combine(Path.GetTempPath(), "stalkerresources");
 
         public StalkerBot(string TelegramApiToken)
         {
@@ -21,8 +21,8 @@ namespace StalkerBot
 
             Directory.CreateDirectory(path);
 
-            File.WriteAllBytes(path + @"\res.zip", Res.stalkerresources);
-            ZipFile.ExtractToDirectory(path + @"\res.zip", path, true);  
+            File.WriteAllBytes(Path.Combine(path, "res.zip"), Res.stalkerresources);
+            ZipFile.ExtractToDirectory(Path.Combine(path, "res.zip"), path, true);  
 
             var Bot = new TelegramBotClient(TelegramApiToken);
 
