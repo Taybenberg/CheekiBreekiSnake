@@ -21,7 +21,7 @@ namespace StalkerBot
             switch (command)
             {
                 case "start":
-                    await Bot.SendTextMessageAsync(ChatId, "Вітаю! Я @StalkerUkrBot!\nНатисніть '/', щоби обрати команду.\nТакож ви можете зіграти у гру: cheekibreekisnake.apphb.com");
+                    await Bot.SendTextMessageAsync(ChatId, "Вітаю! Я @StalkerUkrBot!\nНатисніть '/', щоби обрати команду.\n");// Також ви можете зіграти у гру: cheekibreekisnake.apphb.com");
                     break;
 
                 case "stalker":
@@ -49,7 +49,7 @@ namespace StalkerBot
                     break;
 
                 case "cheekibreeki":
-                    await Bot.SendTextMessageAsync(ChatId, "Гра тут: cheekibreekisnake.apphb.com");
+                    //await Bot.SendTextMessageAsync(ChatId, "Гра тут: cheekibreekisnake.apphb.com");
                     break;
             }
         }

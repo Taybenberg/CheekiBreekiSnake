@@ -22,7 +22,7 @@ namespace CheekiBreekiSnake
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls($"http://0.0.0.0:{Environment.GetEnvironmentVariable("PORT") ?? "5000"}/").UseStartup<Startup>();
                 });
     }
 }

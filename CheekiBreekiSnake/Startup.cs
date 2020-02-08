@@ -30,7 +30,7 @@ namespace CheekiBreekiSnake
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
 
-            new StalkerBot.StalkerBot(Configuration.GetValue<string>("TelegramBotApiToken"));
+            new StalkerBot.StalkerBot(Environment.GetEnvironmentVariable("TelegramBotApiToken"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
