@@ -63,9 +63,9 @@ namespace StalkerBot {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] stalkerresources {
+        internal static byte[] stalkerres {
             get {
-                object obj = ResourceManager.GetObject("stalkerresources", resourceCulture);
+                object obj = ResourceManager.GetObject("stalkerres", resourceCulture);
                 return ((byte[])(obj));
             }
         }
