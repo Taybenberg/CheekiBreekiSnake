@@ -21,7 +21,7 @@ namespace StalkerBot
 
             Directory.CreateDirectory(path);
 
-            File.WriteAllBytes(path + @"\res.zip", Res.StalkerResources);
+            File.WriteAllBytes(path + @"\res.zip", Res.stalkerresources);
             ZipFile.ExtractToDirectory(path + @"\res.zip", path, true);  
 
             var Bot = new TelegramBotClient(TelegramApiToken);
