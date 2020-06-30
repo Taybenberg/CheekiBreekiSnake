@@ -9,44 +9,44 @@ namespace StalkerBot
 {
     public partial class StalkerBot
     {
-        readonly string TelegramApiToken;
+        private TelegramBotClient bot;
 
-        Random R = new Random();
+        private Random R = new Random();
 
-        readonly string path = Path.Combine(Path.GetTempPath(), "stalkerresources");
+        private readonly string path = Path.Combine(Path.GetTempPath(), "stalkerresources");
+
+        public void Start() => bot.StartReceiving();
+
+        public void Stop() => bot.StopReceiving();
 
         public StalkerBot(string TelegramApiToken)
         {
-            this.TelegramApiToken = TelegramApiToken;
-
             Directory.CreateDirectory(path);
 
             File.WriteAllBytes(Path.Combine(path, "res.zip"), Res.stalkerres);
             ZipFile.ExtractToDirectory(Path.Combine(path, "res.zip"), path, true);  
 
-            var Bot = new TelegramBotClient(TelegramApiToken);
+            bot = new TelegramBotClient(TelegramApiToken);
 
-            Bot.SetWebhookAsync("");
+            bot.SetWebhookAsync("");
 
-            Bot.OnCallbackQuery += async (object updobj, CallbackQueryEventArgs cqea) =>
+            bot.OnCallbackQuery += async (object updobj, CallbackQueryEventArgs cqea) =>
             {
-                shoc(Bot, cqea);
+                shoc(bot, cqea);
             };
 
-            Bot.OnInlineQuery += async (object updobj, InlineQueryEventArgs iqea) =>
+            bot.OnInlineQuery += async (object updobj, InlineQueryEventArgs iqea) =>
             {
-                inlineQuery(Bot, iqea);
+                inlineQuery(bot, iqea);
             };
 
-            Bot.OnMessage += async (object updobj, MessageEventArgs mea) =>
+            bot.OnMessage += async (object updobj, MessageEventArgs mea) =>
             {
                 if (mea.Message.ReplyToMessage != null && mea.Message.ReplyToMessage.Type == MessageType.Text)
-                    replyToMessage(Bot, mea);
+                    replyToMessage(bot, mea);
                 else if (mea.Message.Type == MessageType.Text)
-                    textMessage(Bot, mea);
+                    textMessage(bot, mea);
             };
-
-            Bot.StartReceiving();
         }
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CheekiBreekiSnake
 {
@@ -23,6 +24,11 @@ namespace CheekiBreekiSnake
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseUrls($"http://0.0.0.0:{Environment.GetEnvironmentVariable("PORT") ?? "5000"}/").UseStartup<Startup>();
+                })
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddSingleton(Environment.GetEnvironmentVariable("TelegramBotApiToken"));
+                    services.AddHostedService<Worker>();
                 });
     }
 }
