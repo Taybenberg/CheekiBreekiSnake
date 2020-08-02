@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Configuration;
+using System.Text.RegularExpressions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
@@ -12,9 +13,19 @@ namespace CheekiBreekiSnake
     {
         private StalkerBot.StalkerBot bot;
 
-        public Worker(string telegramBotApiToken)
+        public Worker()
         {
-            bot = new StalkerBot.StalkerBot(telegramBotApiToken);
+            /*  
+             *  Хостинг AppHarbor записує конфігураційні змінні до файлу .config, 
+             *  який більше не використовується в .Net Core
+             *  Через це доводиться діставати токен за допомогою Regex-виразу
+             */
+
+            var regex = new Regex("\"TelegramBotApiToken\" value=\"(.+)\"");
+
+            var match = regex.Match(File.ReadAllText(ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).FilePath));
+
+            bot = new StalkerBot.StalkerBot(match.Groups[1].Value);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)

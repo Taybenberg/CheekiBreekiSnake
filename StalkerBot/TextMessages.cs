@@ -45,7 +45,7 @@ namespace StalkerBot
                     break;
 
                 case "sendvoice":
-                    await Bot.SendTextMessageAsync(ChatId, "Натисніть кнопку та оберіть чат до якого хочете надіслати фразу.", replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithSwitchInlineQuery("Надіслати")}));
+                    await Bot.SendTextMessageAsync(ChatId, "Оберіть чат до якого хочете надіслати фразу.", replyMarkup: new InlineKeyboardMarkup(new[] { InlineKeyboardButton.WithSwitchInlineQuery("Надіслати")}));
                     break;
 
                 case "cheekibreeki":

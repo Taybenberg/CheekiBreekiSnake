@@ -27,7 +27,6 @@ namespace CheekiBreekiSnake
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
-                    services.AddSingleton(Environment.GetEnvironmentVariable("TelegramBotApiToken"));
                     services.AddHostedService<Worker>();
                 });
     }
